@@ -16,7 +16,7 @@ The setup uses modern AWS best practices:
 
 ## Usage
 
-```hcl
+```terraform
 module "static_site" {
   source = "github.com/alrudolph/tf-utils/modules/aws/static-site/module"
 

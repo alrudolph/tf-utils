@@ -8,7 +8,7 @@ Collection of Terraform modules for AWS infrastructure. These modules handle com
 
 Creates a CloudFront distribution backed by a private S3 bucket for hosting static websites with optional custom domain support.
 
-```hcl
+```terraform
 module "static_site" {
   source = "github.com/alrudolph/tf-utils/modules/aws/static-site/module"
 
@@ -24,7 +24,7 @@ module "static_site" {
 
 Creates S3 bucket and DynamoDB table for Terraform remote state storage and locking.
 
-```hcl
+```terraform
 module "s3_backing" {
   source = "github.com/alrudolph/tf-utils/modules/aws/s3-backing/module"
 
@@ -39,7 +39,7 @@ module "s3_backing" {
 
 Sets up OIDC authentication for GitHub Actions to access AWS without storing long-lived credentials.
 
-```hcl
+```terraform
 module "gh_actions_perms" {
   source = "github.com/alrudolph/tf-utils/modules/aws/gh-actions-access/module"
 
@@ -64,7 +64,7 @@ module "gh_actions_perms" {
 
 Reference modules directly from GitHub:
 
-```hcl
+```terraform
 module "example" {
   source = "github.com/alrudolph/tf-utils/modules/aws/<module-name>/module"
   # ... variables
@@ -73,7 +73,7 @@ module "example" {
 
 Or clone the repository and use local paths:
 
-```hcl
+```terraform
 module "example" {
   source = "./tf-utils/modules/aws/<module-name>/module"
   # ... variables

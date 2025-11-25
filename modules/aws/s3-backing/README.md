@@ -14,7 +14,7 @@ This module creates both resources with the correct configuration, saving you fr
 
 ### Step 1: Create the backend infrastructure
 
-```hcl
+```terraform
 module "s3_backing" {
   source = "github.com/alrudolph/tf-utils/modules/aws/s3-backing/module"
 
@@ -29,7 +29,7 @@ Apply this first to create the resources.
 
 After the resources exist, configure your Terraform backend to use them:
 
-```hcl
+```terraform
 terraform {
   backend "s3" {
     bucket         = "my-terraform-state-bucket"

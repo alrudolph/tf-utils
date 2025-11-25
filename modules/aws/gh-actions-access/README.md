@@ -15,7 +15,7 @@ OIDC authentication is more secure because GitHub Actions receives temporary cre
 
 ## Usage
 
-```hcl
+```terraform
 module "gh_actions_perms" {
   source = "github.com/alrudolph/tf-utils/modules/aws/gh-actions-access/module"
 
