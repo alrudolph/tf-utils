@@ -24,6 +24,7 @@ resource "aws_iam_role" "github_actions" {
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
+      for it in coalesce(var.github_repos, [var.github_repo]) :
       {
         Effect = "Allow",
         Principal = {
@@ -35,7 +36,7 @@ resource "aws_iam_role" "github_actions" {
             "token.actions.githubusercontent.com:aud" : "sts.amazonaws.com"
           },
           StringLike = {
-            "token.actions.githubusercontent.com:sub" : "repo:${var.github_repo}:*"
+            "token.actions.githubusercontent.com:sub" : "repo:${it}:*"
           }
         }
       }
@@ -44,6 +45,7 @@ resource "aws_iam_role" "github_actions" {
 }
 
 resource "aws_iam_role_policy" "terraform_permissions" {
+  count = var.role_policy != null ? 1 : 0
   name   = "terraform-access-policy"
   role   = aws_iam_role.github_actions.id
   policy = var.role_policy
