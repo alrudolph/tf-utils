@@ -3,6 +3,11 @@ variable "github_repo" {
   type        = string
 }
 
+variable "github_repos" {
+  description = "The GitHub repositories to grant access to in the format: owner/repo-name"
+  type        = list(string)
+}
+
 variable "role_name" {
   description = "The name of the IAM role to create for GitHub Actions"
   type        = string
