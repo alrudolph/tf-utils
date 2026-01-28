@@ -16,6 +16,6 @@ variable "certificate_domain_name" {
 }
 
 variable "redirect_domain" {
-  type = string
+  type        = string
   description = "Domain to redirect to"
 }
