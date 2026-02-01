@@ -81,6 +81,10 @@ module "site_redirect" {
 
 [Full documentation](modules/aws/site-redirect/README.md)
 
+### Certificate Validation
+
+TODO
+
 ## Usage
 
 Reference modules directly from GitHub:
