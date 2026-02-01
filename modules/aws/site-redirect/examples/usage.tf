@@ -8,5 +8,5 @@ module "site_redirect" {
   ]
 
   certificate_domain_name = "alternative-domain.com"
-  redirect_domain = "my-site.com"
+  redirect_domain         = "my-site.com"
 }
